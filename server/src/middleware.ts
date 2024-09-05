@@ -11,13 +11,15 @@ import { verify } from "jsonwebtoken";
 export const isAuth: MiddlewareFn<MyContext> = ({ context }, next) => {
 	const authorization: string | undefined = context.req.headers["authorization"];
 
+	console.log(process.env.REACT_APP_ACCESS_TOKEN_SECRET!);
+
 	if (!authorization) {
 		throw new Error("Not authenticated");
 	}
 
 	try {
 		const token: string = authorization.split(" ")[1];
-		const payload: string | object = verify(token, process.env.ACCESS_TOKEN_SECRET!);
+		const payload: string | object = verify(token, process.env.REACT_APP_ACCESS_TOKEN_SECRET!);
 		context.payload = payload as any;
 	} catch (err) {
 		console.log(err);

@@ -29,6 +29,7 @@ npm start
 ```bash
 cd client
 npm install
+$env:NODE_OPTIONS = "--openssl-legacy-provider"
 npm start
 ```
 - It will server at http://localhost:3000/

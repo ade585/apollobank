@@ -197,7 +197,7 @@ export const Settings: React.FC = () => {
                                     resetForm();
                                 }
                             } catch (error) {
-                                const errorMessage = error.message.split(':')[1];
+                                const errorMessage = (error as Error).message.split(':')[1];
                                 setErrorMessage(errorMessage);
                                 setSubmitting(false);
                             }
@@ -514,7 +514,7 @@ export const Settings: React.FC = () => {
                                             }, 3000);
                                         }
                                     } catch (error) {
-                                        const errorMessage: string = error.message.split(':')[1];
+                                        const errorMessage: string = (error as Error).message.split(':')[1];
                                         console.log(errorMessage);
                                     }
                                 }}

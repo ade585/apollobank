@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from "type-graphql";
-import { Entity, BaseEntity, PrimaryGeneratedColumn, ManyToOne, Column } from "typeorm";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, ManyToOne, Column, JoinTable } from "typeorm";
 import { Account } from "./Account";
 import { Card } from "./Card";
 
@@ -14,9 +14,11 @@ export class Transaction extends BaseEntity {
 	id: number;
 
 	@ManyToOne(() => Account, (account) => account.transactions, { onDelete: "CASCADE" })
+	@JoinTable()
 	account: Account;
 
 	@ManyToOne(() => Card, (card) => card.transactions, { onDelete: "CASCADE" })
+	@JoinTable()
 	card: Card;
 
 	@Field()

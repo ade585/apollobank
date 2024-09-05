@@ -43,7 +43,7 @@ import "reflect-metadata";
 		let payload: any = null;
 
 		try {
-			payload = verify(token, process.env.REFRESH_TOKEN_SECRET!);
+			payload = verify(token, process.env.REACT_APP_REFRESH_TOKEN_SECRET!);
 		} catch (err) {
 			console.log(err);
 			return res.send({ ok: false, accessToken: "" });

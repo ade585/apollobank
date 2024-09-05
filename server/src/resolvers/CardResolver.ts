@@ -24,11 +24,17 @@ export class CardResolver {
 		if (owner) {
 			const account: Account | undefined = await Account.findOne({ where: { owner: owner } });
 
+			console.log(account);
+
+			console.log("et alors");
+
 			if (account) {
-				const cards = await Card.find({ where: { account: account } });
+				const cards = await Card.find({ where: { owner: owner  } });
+				console.log("END OF section");
 				return cards;
 			}
 		}
+		console.log("returnned NULL val");
 		return null;
 	}
 

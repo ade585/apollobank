@@ -48,7 +48,7 @@ export class UserResolver {
 
 		try {
 			const token: string = authorization.split(" ")[1];
-			const payload: any = verify(token, process.env.ACCESS_TOKEN_SECRET!);
+			const payload: any = verify(token, process.env.REACT_APP_ACCESS_TOKEN_SECRET!);
 			context.payload = payload as any;
 			return User.findOne(payload.userId);
 		} catch (err) {

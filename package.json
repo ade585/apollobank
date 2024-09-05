@@ -1,0 +1,9 @@
+{
+  "name": "apollobank",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {},
+  "scripts": {
+    "startclient": "set NODE_OPTIONS=--openssl-legacy-provider && set NODE_ENV=development && set NODE_OPTIONS=--openssl-legacy-provider  cd ./client && npm start"
+  }
+}

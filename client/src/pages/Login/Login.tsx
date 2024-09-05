@@ -31,6 +31,8 @@ export const Login: React.FC<RouteComponentProps> = ({ history }) => {
         <div className={classes.root}>
             <div>
                 <h1 className={classes.headerText}>Login</h1>
+                <h1> a{process.env.REACT_APP_ACCESS_TOKEN_SECRET} a</h1>
+                <h1> hello </h1>
             </div>
             {errorMessage.length > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -73,7 +75,7 @@ export const Login: React.FC<RouteComponentProps> = ({ history }) => {
                             resetForm();
                         }
                     } catch (error) {
-                        const errorMessage: string = error.message.split(':')[1];
+                        const errorMessage: string = (error as Error).message.split(':')[1];
                         setErrorMessage(errorMessage);
                         setSubmitting(false);
                     }
@@ -82,7 +84,7 @@ export const Login: React.FC<RouteComponentProps> = ({ history }) => {
                 {({ isSubmitting }) => (
                     <div>
                         <Form>
-                            <div>
+                            <div>²
                                 <FormTextField
                                     className={classes.formField}
                                     name="email"
